@@ -26,4 +26,4 @@ The package registers no service and no tool — it exports pure functions, so a
 
 ## Consequences
 
-Consumers get a deterministic, sandboxed modeling core that is safe to run on untrusted documents. There is no editor composition yet — building the desktop/web workbench over `apps/web` is the natural next step and will decide whether a service seam is warranted. Value-type constraints (`pattern`/`min`/`max`/`enumValues`) are validated as definitions but not yet enforced on instances; that enforcement belongs to the same future step.
+Consumers get a deterministic, sandboxed modeling core that is safe to run on untrusted documents. The standalone `dsh-experimental-ontology-studio` editor is its first consumer; composing into the product client is the natural next step and will decide whether a service seam is warranted. Value-type constraints (`pattern`/`min`/`max`/`enumValues`) are validated as definitions but not yet enforced on instances; that enforcement belongs to the same future step.

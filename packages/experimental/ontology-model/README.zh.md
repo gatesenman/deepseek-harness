@@ -33,6 +33,6 @@
 
 ## Known Limitations and Deferred Work
 
-- **尚无编辑器组合** — 本包仅是领域内核；基于 `apps/web` 的桌面/网页编辑器插件被推迟，当前消费者以编程方式驱动它。
+- **尚无产品客户端组合** — 本包是领域内核；独立的 [`dsh-experimental-ontology-studio`](../ontology-studio/README.zh.md) 编辑器消费它，但基于 `apps/web` 的客户端插件被推迟。
 - **实例解析是结构性而非语义性的** — `parseOntology` 只检查外层信封与数组形状；实体级形状错误由后续的 `validateOntology`/`checkInstances` 暴露，而非在解析时。
 - **值类型约束未在实例上强制执行** — `pattern`/`min`/`max`/`enumValues` 作为定义被校验，但 `checkInstances` 只检查基础类型。

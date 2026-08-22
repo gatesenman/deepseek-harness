@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write packages/experimental/ontology-model/README.md
-README.md: ec1f22a261c5e049304c296f5b5586090a7ee3c1
-README.zh.md: 1548fafb4d8dc76f4bb490b1e5d9a1a391dbc01e
+README.md: 21116fdf5d4e0cb7acaceb96b9922fe9b4c3bca6
+README.zh.md: 64507509ca0527b60168afc36e5632e102512e3e

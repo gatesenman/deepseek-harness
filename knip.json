@@ -605,6 +605,16 @@
         "tests/**/*.tsx"
       ]
     },
+    "packages/experimental/ontology-studio": {
+      "entry": [
+        "tests/**/*.spec.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "tests/**/*.ts"
+      ]
+    },
     "apps/web": {
       "entry": [
         "tests/**/*.e2e.ts",

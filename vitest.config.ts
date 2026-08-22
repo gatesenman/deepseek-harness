@@ -256,6 +256,11 @@ export default defineConfig({
         'packages/client/ui-primitives/src/JsonTree.tsx',
         'packages/client/ui-settings-models/src/client/DeepSeekOnboardingDialog.tsx',
         'packages/client/ui-settings-models/src/client/welcome-store.ts',
+        // Standalone Vite-served ontology editor: its React shell needs a
+        // browser-grade harness the jsdom lane doesn't cover yet. TODO(gui):
+        // cover and remove with the client test lane above.
+        'packages/experimental/ontology-studio/src/main.tsx',
+        'packages/experimental/ontology-studio/src/client/*',
         'packages/extensions/*/src/**/*.ts',
         'packages/extensions/*/src/**/*.tsx',
         // Typert generator: correctness is pinned by its fixture suites and

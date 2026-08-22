@@ -33,6 +33,6 @@ The testing engine runs against `sampleInstances`: `runRule` tallies passing/fai
 
 ## Known Limitations and Deferred Work
 
-- **No editor composition yet** — the package is the domain core only; a desktop/web editor plugin over `apps/web` is deferred, so consumers today drive it programmatically.
+- **No product-client composition yet** — the package is the domain core; the standalone [`dsh-experimental-ontology-studio`](../ontology-studio/README.md) editor consumes it, but a client plugin over `apps/web` is deferred.
 - **Structural (not semantic) instance parsing** — `parseOntology` checks the envelope and array shapes only; entity-level shape errors surface later through `validateOntology`/`checkInstances`, not at parse time.
 - **Value-type constraints are not enforced on instances** — `pattern`/`min`/`max`/`enumValues` are validated as definitions but `checkInstances` checks base types only.
