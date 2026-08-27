@@ -9,6 +9,10 @@
     { "path": "../../../vendor/cosmokit" },
     { "path": "../../../vendor/cordis" },
     { "path": "../../runtime-diagnostics/invariants" },
-    { "path": "../ontology-model" }
+    { "path": "../ontology-model" },
+    { "path": "../../client/runtime" },
+    { "path": "../../client/ui-slots" },
+    { "path": "../../client/ui-layout" },
+    { "path": "../../client/ui-sidebar" }
   ]
 }

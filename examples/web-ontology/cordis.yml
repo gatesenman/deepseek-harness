@@ -1,0 +1,12 @@
+# Opt-in Ontology Studio patch over the shipped Web composition. The package
+# is experimental, so releases exclude it; this overlay is the sanctioned way
+# to load it into the Web profile:
+#   dsh web --patch examples/web-ontology/cordis.yml
+# The row is simultaneously a host row (empty node half) and a browser roster
+# row: the modules node half scans its package.json dsh.client declaration
+# into window.__DSH_BOOT__, and the browser half mounts the sidebar launcher
+# plus the shell.overlay editor surface.
+
+- insert:
+    - id: ui-ontology-studio
+      name: '@deepseek-ai/dsh-experimental-ontology-studio'

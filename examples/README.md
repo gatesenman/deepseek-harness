@@ -24,6 +24,10 @@ A self-referential agent that can inspect and change its in-memory Cordis plugin
 
 An opt-in Web overlay for durable, Session-local reminders. It supports positive whole-second `after_seconds` delays and absolute `at` targets through `schedule_create`, `schedule_list`, and `schedule_delete`; active reminders persist in the original Session, resume when that Session becomes live again, and do not run while it is cold. Run `dsh web --patch examples/web-schedule/cordis.yml`; see [web-schedule/README.md](web-schedule/README.md) for absolute-time authority, delivery, and recovery boundaries.
 
+## web-ontology
+
+An opt-in Web overlay mounting the experimental Ontology Studio: a modeling and testing surface over the six ontology entity kinds, opened from a sidebar launcher over the app frame. Run `dsh web --patch examples/web-ontology/cordis.yml`; see [web-ontology/README.md](web-ontology/README.md).
+
 ## acp-agent
 
 An Agent Client Protocol automation server for programmatic clients, with session, permission, and cancellation support. See the [ACP example reference](acp-agent/README.md).

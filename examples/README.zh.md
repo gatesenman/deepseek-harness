@@ -24,6 +24,10 @@
 
 用于持久、仅限 Session 内提醒的可选 Web overlay。它通过 `schedule_create`、`schedule_list` 和 `schedule_delete` 支持正整数秒的 `after_seconds` 延时与绝对 `at` 目标；活动提醒保存在原 Session 中，该 Session 再次 live 时恢复，而 cold 期间不会运行。使用 `dsh web --patch examples/web-schedule/cordis.yml` 启动；绝对时间 authority 以及交付与恢复边界详见 [web-schedule/README.md](web-schedule/README.zh.md)。
 
+## web-ontology
+
+挂载实验性 Ontology Studio 的可选 Web overlay：覆盖六类本体实体的建模与测试界面，通过侧边栏启动器在应用框架之上打开。使用 `dsh web --patch examples/web-ontology/cordis.yml` 启动；详见 [web-ontology/README.md](web-ontology/README.zh.md)。
+
 ## acp-agent
 
 面向程序化客户端的 ACP（Agent Client Protocol）自动化服务器，支持会话、权限和取消操作。详见 [ACP 示例参考](acp-agent/README.zh.md)。

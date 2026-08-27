@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/feature/2026-08-21-experimental-ontology-studio.md
-2026-08-21-experimental-ontology-studio.md: 79a9a0aa910491e660cd7564c6a58c5716af3ef3
-2026-08-21-experimental-ontology-studio.zh.md: ecab73ce38105f7a46c3285e0edda5428fe69463
+2026-08-21-experimental-ontology-studio.md: 183ac71bec8a98d88151ccee340afeda5999206b
+2026-08-21-experimental-ontology-studio.zh.md: bd66a1e33c91ca58d93b02c933c49e5014abf7c6

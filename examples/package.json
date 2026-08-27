@@ -105,6 +105,7 @@
     "@deepseek-ai/dsh-tool-subagent-control": "workspace:*",
     "@deepseek-ai/dsh-tool-subagent-report": "workspace:*",
     "@deepseek-ai/dsh-tool-jobs": "workspace:*",
+    "@deepseek-ai/dsh-experimental-ontology-studio": "workspace:*",
     "@deepseek-ai/dsh-experimental-tool-agent-team": "workspace:*",
     "@deepseek-ai/dsh-tool-todo": "workspace:*",
     "@deepseek-ai/dsh-tool-web": "workspace:*",

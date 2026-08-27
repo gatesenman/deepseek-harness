@@ -15,9 +15,10 @@ export const name = 'experimental-ontology-studio-invariant'
 export const inject = ['invariants']
 
 /**
- * No runtime invariant: this standalone browser editor runs outside any
- * Cordis host and owns no event stream or mutable runtime data; document
- * consistency is enforced by the ontology-model validators it renders.
+ * No runtime invariant: this editor owns no event stream or mutable runtime
+ * data — its browser plugin only contributes slot entries over an
+ * entry-declared store, and document consistency is enforced by the
+ * ontology-model validators it renders.
  */
 const install: InvariantInstaller = () => {}
 

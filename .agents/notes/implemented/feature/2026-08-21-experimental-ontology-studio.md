@@ -14,14 +14,14 @@ One private package, `@deepseek-ai/dsh-experimental-ontology-studio`, holding a 
 
 The package's public entry (`src/helpers.ts`) is deliberately React-free — kind labels, the base-type list, and the `newEntity` factory — so the node test lane covers the editor logic while the React shell carries a TODO(gui) coverage exemption alongside the other client-lane debt in `vitest.config.ts`.
 
-It is a standalone app, not a client plugin: it registers no slot, store, or service, so the product-visible real-composition test requirement does not attach. Mirroring the model package, its invariant companion is an explained empty.
+The standalone app registers no slot, store, or service. Mirroring the model package, the package's invariant companion is an explained empty. The package has since also grown a Web client plugin half; the [Web plugin note](2026-08-26-ontology-studio-web-plugin.md) owns that decision.
 
 ## Alternatives considered
 
-**A `packages/client/ui-ontology-*` plugin on the `apps/web` shell now.** Rejected for this step: composing into the product client means slots, entry-declared stores, locale records, theme tokens, and real-composition tests — worth doing only once the editor's operation set has stabilized. The standalone app proves the editor with the smallest surface; promotion is a follow-up with its own note.
+**A `packages/client/ui-ontology-*` plugin on the `apps/web` shell now.** Rejected for this step: composing into the product client means slots, entry-declared stores, locale records, theme tokens, and real-composition tests — worth doing only once the editor's operation set has stabilized. The standalone app proves the editor with the smallest surface; the promotion has since shipped with [its own note](2026-08-26-ontology-studio-web-plugin.md).
 
 **Extending `apps/web` directly with an ontology route.** Rejected: `apps/web` is a thin Vite entry over `dsh-client-web`; embedding an experimental editor there would put experimental code on the release path, which `packages/experimental` rules forbid.
 
 ## Consequences
 
-Users get a runnable editor (`pnpm --filter @deepseek-ai/dsh-experimental-ontology-studio dev`) covering the full modeling loop: author entities, edit instances, and watch validation and tests update live. Persistence is browser-local only. The editor's usage will inform whether the model grows a Cordis service seam and which operations a product client plugin needs; that promotion, richer persistence, and React-shell test coverage are the deferred follow-ups.
+Users get a runnable editor (`pnpm --filter @deepseek-ai/dsh-experimental-ontology-studio dev`) covering the full modeling loop: author entities, edit instances, and watch validation and tests update live. Persistence is browser-local only. The editor's usage will inform whether the model grows a Cordis service seam and which operations a product client plugin needs; richer persistence and React-shell test coverage are the deferred follow-ups; the client-plugin promotion has shipped ([Web plugin note](2026-08-26-ontology-studio-web-plugin.md)).

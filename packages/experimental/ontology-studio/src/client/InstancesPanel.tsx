@@ -2,6 +2,7 @@
 import { newId } from '@deepseek-ai/dsh-experimental-ontology-model'
 import type { Ontology, SampleInstance } from '@deepseek-ai/dsh-experimental-ontology-model'
 import { useState } from 'react'
+import css from './studio.module.css'
 
 function InstanceCard(props: {
   o: Ontology
@@ -25,9 +26,9 @@ function InstanceCard(props: {
     }
   }
   return (
-    <div className="result-card">
-      <h4 className="mono">{instance.id}</h4>
-      <div className="field">
+    <div className={css.resultCard}>
+      <h4 className={css.mono}>{instance.id}</h4>
+      <div className={css.field}>
         <label>对象类型</label>
         <select
           value={instance.objectTypeId}
@@ -40,19 +41,19 @@ function InstanceCard(props: {
           ))}
         </select>
       </div>
-      <div className="field">
+      <div className={css.field}>
         <label>属性值（JSON）</label>
         <textarea value={draft} onChange={(e) =>{  setDraft(e.target.value) }} rows={5} />
       </div>
       {error !== null && (
-        <p className="mono" style={{ color: 'var(--error)' }}>
+        <p className={css.errorText}>
           {error}
         </p>
       )}
-      <button className="primary" onClick={apply}>
+      <button className={css.primary} onClick={apply}>
         应用
       </button>{' '}
-      <button className="danger" onClick={onRemove}>
+      <button className={css.danger} onClick={onRemove}>
         删除实例
       </button>
     </div>
@@ -75,14 +76,14 @@ export function InstancesPanel(props: {
     if (first !== undefined) onUpsert({ id: newId('inst'), objectTypeId: first.id, values: {} })
   }
   return (
-    <div className="editor-pane">
-      <h3 className="section">样本实例（用于规则/指标测试）</h3>
+    <div className={css.editorPane}>
+      <h3 className={css.section}>样本实例（用于规则/指标测试）</h3>
       <p>
-        <button className="primary" disabled={o.objectTypes.length === 0} onClick={addInstance}>
+        <button className={css.primary} disabled={o.objectTypes.length === 0} onClick={addInstance}>
           + 添加样本实例
         </button>
       </p>
-      {o.sampleInstances.length === 0 && <p className="muted">尚未添加样本实例。</p>}
+      {o.sampleInstances.length === 0 && <p className={css.muted}>尚未添加样本实例。</p>}
       {o.sampleInstances.map(s => (
         <InstanceCard
           key={s.id}

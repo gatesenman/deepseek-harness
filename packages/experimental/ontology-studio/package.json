@@ -1,6 +1,6 @@
 {
   "name": "@deepseek-ai/dsh-experimental-ontology-studio",
-  "description": "Standalone web editor over dsh-experimental-ontology-model: sidebar-navigated CRUD for the six ontology entity kinds, sample-instance editing, and a testing panel running validation, rules, metrics, and instance schema checks; run with `pnpm dev` in this package",
+  "description": "Ontology editor over dsh-experimental-ontology-model: sidebar-navigated CRUD for the six ontology entity kinds, sample-instance editing, and a testing panel running validation, rules, metrics, and instance schema checks; ships as a Web browser plugin (launcher + shell.overlay surface) and as a standalone Vite app via `pnpm dev`",
   "version": "0.1.1-rc.2",
   "private": true,
   "repository": {
@@ -20,31 +20,49 @@
       "types": "./lib/types/invariant.d.ts",
       "default": "./lib/invariant.js"
     },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
     "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
   "files": [
     "lib/index.js",
     "lib/invariant.js",
+    "lib/client.js",
     "lib/types/**/*.d.ts"
   ],
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
   "scripts": {
+    "bundle": "tsdown",
+    "watch": "tsdown --watch",
     "dev": "vite",
     "build:app": "vite build"
   },
   "license": "MIT",
-  "dependencies": {
-    "@deepseek-ai/dsh-experimental-ontology-model": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "peerDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "workspace:^",
     "@deepseek-ai/dsh-invariants": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^"
   },
   "devDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-layout": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-sidebar": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
     "@deepseek-ai/dsh-invariants": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^",
+    "@deepseek-ai/dsh-experimental-ontology-model": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@types/react": "~18.3.1",
     "@types/react-dom": "~18.3.0",
     "@vitejs/plugin-react": "^4.0.0",

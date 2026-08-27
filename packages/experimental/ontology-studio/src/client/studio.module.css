@@ -1,0 +1,357 @@
+/*
+ * Ontology Studio surface styles. All colors come from the repository theme's
+ * `--dsw-alias-*` semantic tokens (docs/web-styling.md); the standalone Vite
+ * page defines the same custom properties in its own global sheet.
+ */
+
+.studio {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-primary);
+  font-size: 14px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--dsw-alias-bg-layer-1);
+  border-bottom: 1px solid var(--dsw-alias-border-l2);
+}
+
+.title {
+  font-size: 15px;
+  margin: 0;
+  color: var(--dsw-alias-brand-primary);
+  white-space: nowrap;
+}
+
+.name {
+  background: var(--dsw-alias-bg-layer-2);
+  border: 1px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-primary);
+  border-radius: 4px;
+  padding: 5px 8px;
+  min-width: 240px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.nav {
+  width: 200px;
+  background: var(--dsw-alias-bg-layer-1);
+  border-right: 1px solid var(--dsw-alias-border-l2);
+  padding: 8px 0;
+  overflow-y: auto;
+}
+
+.navButton {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.navButtonActive {
+  color: var(--dsw-alias-label-primary);
+  background: var(--dsw-alias-bg-layer-2);
+  border-left-color: var(--dsw-alias-brand-primary);
+}
+
+.navButton:hover {
+  color: var(--dsw-alias-label-primary);
+}
+
+.count {
+  float: right;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 11px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+}
+
+.listPane {
+  width: 280px;
+  border-right: 1px solid var(--dsw-alias-border-l2);
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.item {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.item:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.itemSelected {
+  background: var(--dsw-alias-bg-layer-2);
+  outline: 1px solid var(--dsw-alias-brand-primary);
+}
+
+.api {
+  color: var(--dsw-alias-label-secondary);
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.editorPane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.field {
+  margin-bottom: 12px;
+}
+
+.fieldInline {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.field label {
+  display: block;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.field input[type='text'],
+.field input[type='number'],
+.field select,
+.field textarea {
+  width: 100%;
+  max-width: 520px;
+  background: var(--dsw-alias-bg-layer-2);
+  border: 1px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-primary);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.field textarea {
+  font-family: monospace;
+  min-height: 60px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.grow {
+  flex: 1;
+}
+
+.primary,
+.ghost,
+.danger {
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid var(--dsw-alias-border-l2);
+}
+
+.primary {
+  background: var(--dsw-alias-button-primary-fill);
+  border-color: var(--dsw-alias-button-primary-fill);
+  color: var(--dsw-alias-label-primary-inverted);
+  font-weight: 600;
+}
+
+.primary:hover {
+  background: var(--dsw-alias-button-primary-hover);
+}
+
+.ghost {
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+}
+
+.ghost:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.danger {
+  background: none;
+  color: var(--dsw-alias-state-error-primary);
+  border-color: var(--dsw-alias-state-error-primary);
+}
+
+.grid {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.grid th,
+.grid td {
+  border: 1px solid var(--dsw-alias-border-l2);
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.grid th {
+  color: var(--dsw-alias-label-secondary);
+  font-weight: 500;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.grid input,
+.grid select {
+  width: 100%;
+  background: var(--dsw-alias-bg-layer-2);
+  border: 1px solid transparent;
+  color: var(--dsw-alias-label-primary);
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+.badgeError {
+  background: var(--dsw-alias-state-error-secondary);
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.badgeWarning {
+  background: var(--dsw-alias-state-warn-secondary);
+  color: var(--dsw-alias-state-warn-primary);
+}
+
+.badgeOk {
+  background: var(--dsw-alias-state-success-secondary);
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.issue {
+  padding: 6px 10px;
+  border-left: 3px solid var(--dsw-alias-state-error-primary);
+  background: var(--dsw-alias-bg-layer-2);
+  margin-bottom: 4px;
+  border-radius: 0 4px 4px 0;
+}
+
+.issueWarning {
+  border-left-color: var(--dsw-alias-state-warn-primary);
+}
+
+.who {
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+}
+
+.resultCard {
+  background: var(--dsw-alias-bg-layer-2);
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.resultCard h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.muted {
+  color: var(--dsw-alias-label-secondary);
+}
+
+.errorText {
+  font-family: monospace;
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.section {
+  margin: 18px 0 8px;
+  font-size: 13px;
+  color: var(--dsw-alias-label-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.empty {
+  color: var(--dsw-alias-label-secondary);
+  padding: 24px;
+  text-align: center;
+}
+
+.checkRow {
+  display: block;
+  color: var(--dsw-alias-label-primary);
+}
+
+/* Frame-wide overlay entry: fills the shell.overlay layer above the app. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--dsw-alias-bg-base);
+}
+
+/* Sidebar footer launcher: wide row vs rail icon, matching sidebar chrome. */
+.launcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.launcher:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.launcherGlyph {
+  font-size: 14px;
+  line-height: 1;
+}

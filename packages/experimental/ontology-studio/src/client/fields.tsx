@@ -1,5 +1,6 @@
 /** Small controlled form-field helpers shared by every editor. */
 import type { ReactNode } from 'react'
+import css from './studio.module.css'
 
 /**
  * Labeled single-line text input.
@@ -13,11 +14,11 @@ export function TextField(props: {
   mono?: boolean
 }) {
   return (
-    <div className="field">
+    <div className={css.field}>
       <label>{props.label}</label>
       <input
         type="text"
-        className={props.mono === true ? 'mono' : undefined}
+        className={props.mono === true ? css.mono : undefined}
         value={props.value}
         onChange={(e) =>{  props.onChange(e.target.value) }}
       />
@@ -32,7 +33,7 @@ export function TextField(props: {
  */
 export function TextArea(props: { label: string; value: string; onChange: (v: string) => void }) {
   return (
-    <div className="field">
+    <div className={css.field}>
       <label>{props.label}</label>
       <textarea value={props.value} onChange={(e) =>{  props.onChange(e.target.value) }} />
     </div>
@@ -51,7 +52,7 @@ export function SelectField(props: {
   onChange: (v: string) => void
 }) {
   return (
-    <div className="field">
+    <div className={css.field}>
       <label>{props.label}</label>
       <select value={props.value} onChange={(e) =>{  props.onChange(e.target.value) }}>
         {props.options.map(o => (
@@ -75,7 +76,7 @@ export function NumberField(props: {
   onChange: (v: number | undefined) => void
 }) {
   return (
-    <div className="field inline">
+    <div className={`${css.field} ${css.fieldInline}`}>
       <label>{props.label}</label>
       <input
         type="number"
@@ -92,5 +93,5 @@ export function NumberField(props: {
  * @returns The row element.
  */
 export function Row(props: { children: ReactNode }) {
-  return <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>{props.children}</div>
+  return <div className={css.row}>{props.children}</div>
 }

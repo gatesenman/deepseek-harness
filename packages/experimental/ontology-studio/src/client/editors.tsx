@@ -14,20 +14,21 @@ import type {
 } from '@deepseek-ai/dsh-experimental-ontology-model'
 import { BASE_TYPES, setOptional } from '../helpers.ts'
 import { NumberField, Row, SelectField, TextArea, TextField } from './fields.tsx'
+import css from './studio.module.css'
 
 function CommonFields(props: { entity: OntologyEntity; onChange: (e: OntologyEntity) => void }) {
   const { entity, onChange } = props
   return (
     <>
       <Row>
-        <div style={{ flex: 1 }}>
+        <div className={css.grow}>
           <TextField
             label="显示名称"
             value={entity.displayName}
             onChange={(v) =>{  onChange({ ...entity, displayName: v }) }}
           />
         </div>
-        <div style={{ flex: 1 }}>
+        <div className={css.grow}>
           <TextField
             label="API 名称（lowerCamelCase）"
             mono
@@ -90,7 +91,7 @@ function CheckCell(props: { checked: boolean; onChange: (v: boolean) => void }) 
 function DeleteCell(props: { onDelete: () => void }) {
   return (
     <td>
-      <button className="danger" onClick={() => { props.onDelete() }}>
+      <button className={css.danger} onClick={() => { props.onDelete() }}>
         删除
       </button>
     </td>
@@ -156,8 +157,8 @@ function PropertyTable(props: {
   }
   return (
     <>
-      <h3 className="section">对象属性</h3>
-      <table className="grid">
+      <h3 className={css.section}>对象属性</h3>
+      <table className={css.grid}>
         <thead>
           <tr>
             <th>API 名称</th>
@@ -196,7 +197,7 @@ function PropertyTable(props: {
         </tbody>
       </table>
       <button
-        className="ghost"
+        className={css.ghost}
         onClick={() =>{
           onChange([
             ...properties,
@@ -289,8 +290,8 @@ function ParameterTable(props: { parameters: ParameterDef[]; onChange: (p: Param
   }
   return (
     <>
-      <h3 className="section">参数</h3>
-      <table className="grid">
+      <h3 className={css.section}>参数</h3>
+      <table className={css.grid}>
         <thead>
           <tr>
             <th>API 名称</th>
@@ -311,7 +312,7 @@ function ParameterTable(props: { parameters: ParameterDef[]; onChange: (p: Param
         </tbody>
       </table>
       <button
-        className="ghost"
+        className={css.ghost}
         onClick={() =>{
           onChange([
             ...parameters,
@@ -342,8 +343,8 @@ function ActionTypeEditor(props: { o: Ontology; entity: ActionType; onChange: (e
   return (
     <>
       <ParameterTable parameters={entity.parameters} onChange={(p) =>{  onChange({ ...entity, parameters: p }) }} />
-      <h3 className="section">修改目标</h3>
-      <table className="grid">
+      <h3 className={css.section}>修改目标</h3>
+      <table className={css.grid}>
         <thead>
           <tr>
             <th>对象类型</th>
@@ -375,7 +376,7 @@ function ActionTypeEditor(props: { o: Ontology; entity: ActionType; onChange: (e
               </td>
               <td>
                 <button
-                  className="danger"
+                  className={css.danger}
                   onClick={() =>{  onChange({ ...entity, modifies: entity.modifies.filter((_, j) => j !== i) }) }}
                 >
                   删除
@@ -385,16 +386,16 @@ function ActionTypeEditor(props: { o: Ontology; entity: ActionType; onChange: (e
           ))}
         </tbody>
       </table>
-      <button className="ghost" disabled={o.objectTypes.length === 0} onClick={addModify}>
+      <button className={css.ghost} disabled={o.objectTypes.length === 0} onClick={addModify}>
         + 添加修改目标
       </button>
-      <h3 className="section">提交条件（规则）</h3>
-      <div className="field">
+      <h3 className={css.section}>提交条件（规则）</h3>
+      <div className={css.field}>
         {o.rules.length === 0 ? (
-          <span className="muted">尚未定义任何规则</span>
+          <span className={css.muted}>尚未定义任何规则</span>
         ) : (
           o.rules.map(r => (
-            <label key={r.id} style={{ display: 'block', color: 'var(--text)' }}>
+            <label key={r.id} className={css.checkRow}>
               <input
                 type="checkbox"
                 checked={entity.submissionCriteria.includes(r.id)}
