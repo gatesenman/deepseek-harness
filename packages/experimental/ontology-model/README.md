@@ -31,6 +31,10 @@ The testing engine runs against `sampleInstances`: `runRule` tallies passing/fai
 
 `emptyOntology`/`sampleOntology` construct documents (the sample is a logistics domain exercising every kind, including one instance that deliberately violates its rule). `ontologyReducer` applies editor mutations immutably; `KIND_FIELD` maps entity kinds to document fields. `parseOntology` rejects anything but a `formatVersion: 1` JSON object with array entity fields; `stringifyOntology` emits pretty-printed JSON.
 
+## YAML projections
+
+`stringifyOntologyYaml` renders the same six-kind document as YAML with unchanged structure and field names. `toOsiYaml` converts the model into an OSI-specification ontology YAML: value types become `ValueType` concepts with `extends` on the mapped base type and pattern/min/max/enum constraints as `requires`; object types become `EntityType` concepts whose properties are relationships toward their value concept (the primary-key relationship is `OneToOne` and named in `identify_by`); link types become a relationship on the many side (`ONE_TO_MANY` attaches to the target object type), `MANY_TO_MANY` links become a join `EntityType` with a synthesized id relationship plus one `ManyToOne` relationship per end; metrics become `derived_by` relationships; rule expressions are carried verbatim as entity-level `requires`. Action types and sample instances have no OSI counterpart and are omitted from the OSI projection.
+
 ## Known Limitations and Deferred Work
 
 - **No product-client composition yet** — the package is the domain core; the standalone [`dsh-experimental-ontology-studio`](../ontology-studio/README.md) editor consumes it, but a client plugin over `apps/web` is deferred.

@@ -31,6 +31,10 @@
 
 `emptyOntology`/`sampleOntology` 构造文档（示例为一个物流领域，覆盖全部实体类型，并包含一个刻意违反其规则的实例）。`ontologyReducer` 以不可变方式应用编辑器变更；`KIND_FIELD` 把实体类型映射到文档字段。`parseOntology` 只接受实体字段为数组的 `formatVersion: 1` JSON 对象；`stringifyOntology` 输出带缩进的 JSON。
 
+## YAML 投影
+
+`stringifyOntologyYaml` 以结构与字段名不变的方式把同一份六类文档渲染为 YAML。`toOsiYaml` 把模型转换为 OSI 规范的本体 YAML：值类型转换为 `ValueType` 概念，`extends` 指向映射后的基础类型，pattern/min/max/enum 约束转换为 `requires`；对象类型转换为 `EntityType` 概念，其属性成为指向各自值概念的 relationship（主键 relationship 为 `OneToOne` 并写入 `identify_by`）；链接类型转换为多端上的 relationship（`ONE_TO_MANY` 挂在目标对象类型上），`MANY_TO_MANY` 链接转换为一个连接 `EntityType`，带一个合成 id relationship 以及每端各一个 `ManyToOne` relationship；指标转换为 `derived_by` relationship；规则表达式按原文作为实体级 `requires` 携带。动作类型与样本实例没有 OSI 对应概念，OSI 投影中省略。
+
 ## Known Limitations and Deferred Work
 
 - **尚无产品客户端组合** — 本包是领域内核；独立的 [`dsh-experimental-ontology-studio`](../ontology-studio/README.zh.md) 编辑器消费它，但基于 `apps/web` 的客户端插件被推迟。

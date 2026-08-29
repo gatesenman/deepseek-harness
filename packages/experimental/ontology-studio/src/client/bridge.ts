@@ -19,14 +19,16 @@ export function saveDocument(json: string): void {
 }
 
 /**
- * Download the ontology document as `ontology.json`.
- * @param json - Serialized ontology JSON text.
+ * Download serialized ontology text as a file.
+ * @param text - Serialized ontology text.
+ * @param filename - Download filename; defaults to `ontology.json`.
+ * @param mime - Blob MIME type; defaults to `application/json`.
  */
-export function exportFile(json: string): void {
-  const blob = new Blob([json], { type: 'application/json' })
+export function exportFile(text: string, filename = 'ontology.json', mime = 'application/json'): void {
+  const blob = new Blob([text], { type: mime })
   const a = document.createElement('a')
   a.href = URL.createObjectURL(blob)
-  a.download = 'ontology.json'
+  a.download = filename
   a.click()
   URL.revokeObjectURL(a.href)
 }

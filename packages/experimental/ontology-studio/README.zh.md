@@ -20,7 +20,7 @@ pnpm dsh web --patch examples/web-ontology/cordis.yml                  # mount i
 
 ## 编辑器设计
 
-`src/client/StudioSurface.tsx` 是两种宿主共享的受控编辑器界面：文档、查看状态与回调全部通过 props 传入。`src/client/App.tsx` 是其上的独立外壳：用 `useReducer` 套住模型包的 `ontologyReducer`，挂载时加载持久化文档（读不到时回落到内置的物流示例），并在每次变更后自动保存。顶栏可重命名本体、显示实时校验错误计数，并提供导入/导出（JSON 文件）、载入示例与清空。侧边栏在六个实体分区（各自是列表窗格加 `src/client/editors.tsx` 中按类型分派的编辑器）、样本实例编辑器（`src/client/InstancesPanel.tsx`）与测试面板（`src/client/TestPanel.tsx`，渲染 `validateOntology`、`runRule`、`runMetric` 与 `checkInstances` 的结果）之间切换。刻意不存在“操作类型”分区；动作类型是唯一的修改概念。
+`src/client/StudioSurface.tsx` 是两种宿主共享的受控编辑器界面：文档、查看状态与回调全部通过 props 传入。`src/client/App.tsx` 是其上的独立外壳：用 `useReducer` 套住模型包的 `ontologyReducer`，挂载时加载持久化文档（读不到时回落到内置的物流示例），并在每次变更后自动保存。顶栏可重命名本体、显示实时校验错误计数，并提供导入（JSON 文件）、三种导出（原生 JSON、经 `stringifyOntologyYaml` 的原生 YAML、经 `toOsiYaml` 的 OSI 规范 YAML）、载入示例与清空。侧边栏在六个实体分区（各自是列表窗格加 `src/client/editors.tsx` 中按类型分派的编辑器）、样本实例编辑器（`src/client/InstancesPanel.tsx`）与测试面板（`src/client/TestPanel.tsx`，渲染 `validateOntology`、`runRule`、`runMetric` 与 `checkInstances` 的结果）之间切换。刻意不存在“操作类型”分区；动作类型是唯一的修改概念。
 
 `src/helpers.ts`（包的公开入口）保留与 React 无关的编辑器逻辑——类型标签、基础类型列表与 `newEntity` 工厂——因此 node 测试通道可以覆盖它。
 

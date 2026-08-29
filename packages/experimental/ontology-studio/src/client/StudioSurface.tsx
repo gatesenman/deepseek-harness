@@ -5,6 +5,8 @@ import {
   parseOntology,
   sampleOntology,
   stringifyOntology,
+  stringifyOntologyYaml,
+  toOsiYaml,
   validateOntology,
 } from '@deepseek-ai/dsh-experimental-ontology-model'
 import type {
@@ -93,7 +95,19 @@ export function StudioSurface(props: StudioSurfaceProps) {
           导入
         </button>
         <button className={css.ghost} onClick={() =>{  exportFile(stringifyOntology(ontology)) }}>
-          导出
+          导出 JSON
+        </button>
+        <button
+          className={css.ghost}
+          onClick={() =>{  exportFile(stringifyOntologyYaml(ontology), 'ontology.yaml', 'application/yaml') }}
+        >
+          导出 YAML
+        </button>
+        <button
+          className={css.ghost}
+          onClick={() =>{  exportFile(toOsiYaml(ontology), 'ontology.osi.yaml', 'application/yaml') }}
+        >
+          导出 OSI
         </button>
         <button
           className={css.ghost}
