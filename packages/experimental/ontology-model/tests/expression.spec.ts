@@ -39,6 +39,10 @@ describe('evaluate', () => {
 
   it('rejects unknown identifiers and non-numeric operands', () => {
     expect(() => evaluate('missing', {})).toThrow(/unknown identifier/)
+    for (const name of ['toString', 'constructor', '__proto__', 'hasOwnProperty']) {
+      expect(() => evaluate(name, { weightKg: 3 })).toThrow(/unknown identifier/)
+    }
+    expect(evaluate('toString == 1', { toString: 1 })).toBe(true)
     expect(() => evaluate('"a" < 1', {})).toThrow(/expected a number/)
     expect(() => evaluate('-"a"', {})).toThrow(/expected a number/)
     expect(() => evaluate('true * 2', {})).toThrow(/expected a number/)
