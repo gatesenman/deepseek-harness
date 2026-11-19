@@ -180,6 +180,17 @@ function asNumber(v: unknown): number {
   throw new Error(`expected a number, got: ${JSON.stringify(v)}`)
 }
 
+
+function unknownIdentifierError(name: string, scope: Scope): Error {
+  const inherited = Object.getPrototypeOf(scope) !== null && name in Object.getPrototypeOf(scope)
+  if (inherited || name === '__proto__') {
+    return new Error(
+      `unknown identifier: ${name} (only own properties of the scope are visible)`,
+    )
+  }
+  return new Error(`unknown identifier: ${name}`)
+}
+
 function evalNode(node: Node, scope: Scope): unknown {
   switch (node.type) {
     case 'literal':
@@ -188,7 +199,7 @@ function evalNode(node: Node, scope: Scope): unknown {
       // Own properties only: `in` would also resolve Object.prototype members such as
       // `toString` or `constructor`, so an unbound identifier would not be rejected.
       if (!Object.hasOwn(scope, node.name)) {
-        throw new Error(`unknown identifier: ${node.name}`)
+        throw unknownIdentifierError(node.name, scope)
       }
       return scope[node.name]
     }
