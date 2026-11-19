@@ -6,6 +6,15 @@ DeepSeek Harness（`dsh`）是由 [DeepSeek AI](https://deepseek.com) 开发的�
 
 它采用**一切皆插件**的架构，并由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [_A Programming Paradigm for Spatiotemporal Composability_](https://github.com/cordiverse/paper)。
 
+## 插件检查
+
+不必安装整个单仓即可校验插件目录：
+
+```bash
+node scripts/plugin-doctor.mjs examples/sample-plugin
+node --test scripts/plugin-doctor.test.mjs
+```
+
 ## 开发者预览
 
 DeepSeek Harness 目前处于 _开发者预览_ 阶段，正在快速迭代。**未来将出现破坏兼容性的变更。**

@@ -1,0 +1,11 @@
+{
+  "name": "sample-dsh-plugin",
+  "version": "0.1.0",
+  "description": "Minimal sample plugin used by the offline plugin doctor.",
+  "main": "index.js",
+  "dshPlugin": {
+    "id": "sample-dsh-plugin",
+    "entry": "index.js",
+    "displayName": "Sample plugin"
+  }
+}
