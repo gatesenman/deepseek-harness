@@ -42,6 +42,10 @@ describe('evaluate', () => {
     for (const name of ['toString', 'constructor', '__proto__', 'hasOwnProperty']) {
       expect(() => evaluate(name, { weightKg: 3 })).toThrow(/unknown identifier/)
     }
+    expect(() => evaluate('toString', { weightKg: 3 })).toThrow(
+      /only own properties of the scope are visible/,
+    )
+    expect(() => evaluate('missing', {})).toThrow(/^unknown identifier: missing$/)
     expect(evaluate('toString == 1', { toString: 1 })).toBe(true)
     expect(() => evaluate('"a" < 1', {})).toThrow(/expected a number/)
     expect(() => evaluate('-"a"', {})).toThrow(/expected a number/)
@@ -52,11 +56,15 @@ describe('evaluate', () => {
     const scope = Object.create({ inherited: 4 }) as Scope
     scope.own = 1
     expect(evaluate('own + 1', scope)).toBe(2)
-    expect(() => evaluate('inherited', scope)).toThrow(/unknown identifier/)
+    expect(() => evaluate('inherited', scope)).toThrow(
+      /unknown identifier: inherited \(only own properties of the scope are visible\)/,
+    )
   })
 
   it('rejects Object.prototype names such as valueOf unless they are own properties', () => {
-    expect(() => evaluate('valueOf', {})).toThrow(/unknown identifier/)
+    expect(() => evaluate('valueOf', {})).toThrow(
+      /unknown identifier: valueOf \(only own properties of the scope are visible\)/,
+    )
     expect(evaluate('valueOf == 0', { valueOf: 0 })).toBe(true)
   })
 })
