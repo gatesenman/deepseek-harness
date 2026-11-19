@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { checkSyntax, evaluate } from '../src/expression.ts'
+import { checkSyntax, evaluate, type Scope } from '../src/expression.ts'
 
 describe('evaluate', () => {
   it('applies arithmetic precedence', () => {
@@ -46,6 +46,18 @@ describe('evaluate', () => {
     expect(() => evaluate('"a" < 1', {})).toThrow(/expected a number/)
     expect(() => evaluate('-"a"', {})).toThrow(/expected a number/)
     expect(() => evaluate('true * 2', {})).toThrow(/expected a number/)
+  })
+
+  it('rejects identifiers inherited through the scope prototype', () => {
+    const scope = Object.create({ inherited: 4 }) as Scope
+    scope.own = 1
+    expect(evaluate('own + 1', scope)).toBe(2)
+    expect(() => evaluate('inherited', scope)).toThrow(/unknown identifier/)
+  })
+
+  it('rejects Object.prototype names such as valueOf unless they are own properties', () => {
+    expect(() => evaluate('valueOf', {})).toThrow(/unknown identifier/)
+    expect(evaluate('valueOf == 0', { valueOf: 0 })).toBe(true)
   })
 })
 
