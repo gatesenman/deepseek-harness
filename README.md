@@ -1,3 +1,7 @@
+> **说明 / Note.** 本仓库是 DeepSeek Harness 的公开 fork，上游文档结构保持原样。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告。
+>
+> This repository is a public fork of DeepSeek Harness. The upstream README below is kept as-is. Please report vulnerabilities via [SECURITY.md](SECURITY.md).
+
 # DeepSeek Harness
 
 English | [中文](README.zh.md)
