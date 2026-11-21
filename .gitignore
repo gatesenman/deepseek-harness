@@ -40,3 +40,14 @@ packages/experimental/ontology-studio/dist/
 worktrees/
 .agents/worktrees/
 .typert-*/
+
+# Additional hygiene
+Thumbs.db
+.env.local
+.env.*.local
+target/
+logs/
+*.log
+.venv/
+!.env.example
+!.env.example.*
