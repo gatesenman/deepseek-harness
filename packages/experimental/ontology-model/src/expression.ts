@@ -185,7 +185,9 @@ function evalNode(node: Node, scope: Scope): unknown {
     case 'literal':
       return node.value
     case 'ident': {
-      if (!(node.name in scope)) {
+      // Own properties only: `in` would also resolve Object.prototype members such as
+      // `toString` or `constructor`, so an unbound identifier would not be rejected.
+      if (!Object.hasOwn(scope, node.name)) {
         throw new Error(`unknown identifier: ${node.name}`)
       }
       return scope[node.name]
