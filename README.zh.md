@@ -1,3 +1,28 @@
+> **说明 / Note.** 本仓库是 DeepSeek Harness 的公开 fork，上游文档结构保持原样。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告。
+>
+> This repository is a public fork of DeepSeek Harness. The upstream README below is kept as-is. Please report vulnerabilities via [SECURITY.md](SECURITY.md).
+>
+> **本 fork 的安装包与截图。** 本仓库在 `v0.1.0` 发布的资产文件名为
+> `DeepSeek-Harness-Ontology-Studio-Setup-0.1.0-win-x64.exe`、
+> `DeepSeek-Harness-Ontology-Studio-0.1.0-win-x64.zip`、
+> `DeepSeek-Harness-Ontology-Studio-0.1.0-linux-x86_64.AppImage`。
+> 它们带有 Ontology-Studio 字样，**不是**上游 DeepSeek Harness 的官方安装包。下文社区章节中的企微 / 微信二维码不算产品界面。
+> 下面两张是上游文档里已经存在、并经目视确认的「模型 / Models」设置页（API 密钥输入框为空，画面中没有密钥值；不是本 fork Windows 安装后的截图）。
+>
+> | Models settings (docs, English) | 模型设置（文档，中文） |
+> | --- | --- |
+> | ![Models settings](docs/user/guide/providers-models-page.png) | ![模型设置](docs/user/guide/providers-models-page.zh.png) |
+>
+> 另外两张来自同一 `docs/bilingual-readme` 分支、已目视确认的 Web UI 首页（标题为 DSH Local Build / 预览版，不是本 fork Windows 安装后的截图）。
+>
+> Two more visually confirmed Web UI home shots from the same branch (title "DSH Local Build", preview build; not post-Windows-install captures of this fork):
+>
+> | Web UI 首页（中文） | Web UI home (English) |
+> | --- | --- |
+> | ![DSH 首页中文](docs/screenshots/web-home-zh.png) | ![DSH home English](docs/screenshots/web-home-en.png) |
+
+
+
 # DeepSeek Harness
 
 [English](README.md) | 中文
