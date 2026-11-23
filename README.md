@@ -1,6 +1,21 @@
 > **说明 / Note.** 本仓库是 DeepSeek Harness 的公开 fork，上游文档结构保持原样。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告。
 >
 > This repository is a public fork of DeepSeek Harness. The upstream README below is kept as-is. Please report vulnerabilities via [SECURITY.md](SECURITY.md).
+>
+> **本 fork 的安装包与截图 / Packages and screenshots on this fork.**
+> 本仓库（`gatesenman/deepseek-harness`）在 `v0.1.0` 发布了下列资产，文件名带有 `Ontology-Studio`，**不是**上游 DeepSeek Harness 的官方安装包，也不能当成 dsh 桌面发行版：
+> `DeepSeek-Harness-Ontology-Studio-Setup-0.1.0-win-x64.exe`、
+> `DeepSeek-Harness-Ontology-Studio-0.1.0-win-x64.zip`、
+> `DeepSeek-Harness-Ontology-Studio-0.1.0-linux-x86_64.AppImage`。
+> 中文 README 里的企微助手 / 入群问卷 / 微信公众号配图是社区二维码，不算产品界面。
+> 下面两张是上游文档里已经存在、并经目视确认的「模型 / Models」设置页（API 密钥输入框为空，画面中没有密钥值；不是本 fork Windows 安装后的截图）。
+>
+> This fork published the `v0.1.0` assets named above. They are Ontology-Studio-branded and are **not** official upstream DeepSeek Harness installers. The WeCom / WeChat QR images in the Chinese README are community links, not product UI. The two shots below are upstream docs captures of the Models settings page (empty API key field, no secret values visible). They are not post-Windows-install captures of this fork.
+>
+> | Models settings (docs, English) | 模型设置（文档，中文） |
+> | --- | --- |
+> | ![Models settings](docs/user/guide/providers-models-page.png) | ![模型设置](docs/user/guide/providers-models-page.zh.png) |
+
 
 # DeepSeek Harness
 
