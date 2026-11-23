@@ -15,6 +15,15 @@
 > | Models settings (docs, English) | 模型设置（文档，中文） |
 > | --- | --- |
 > | ![Models settings](docs/user/guide/providers-models-page.png) | ![模型设置](docs/user/guide/providers-models-page.zh.png) |
+>
+> 另外两张来自同一 `docs/bilingual-readme` 分支、已目视确认的 Web UI 首页（标题为 DSH Local Build / 预览版，不是本 fork Windows 安装后的截图）。
+>
+> Two more visually confirmed Web UI home shots from the same branch (title "DSH Local Build", preview build; not post-Windows-install captures of this fork):
+>
+> | Web UI 首页（中文） | Web UI home (English) |
+> | --- | --- |
+> | ![DSH 首页中文](docs/screenshots/web-home-zh.png) | ![DSH home English](docs/screenshots/web-home-en.png) |
+
 
 
 # DeepSeek Harness
